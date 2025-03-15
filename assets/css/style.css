@@ -1120,22 +1120,28 @@ a {
     margin-bottom: 8px;
   }
   
-  /* Base styles */
+/* Base styles */
 .descricao-contato {
-    width: 50%;
-    text-align: left;
+    width: 40%; /* Reduz a largura para ficar mais à direita */
+    text-align: right; /* Alinha os textos à direita */
+    margin-top: 50px; /* Move para baixo */
+    margin-left: auto; /* Empurra para a direita */
+    margin-right: 0; /* Garante que fica colado à direita */
 }
 
 .lista-contato {
     list-style: none;
     padding: 0;
     margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Mantém alinhado à direita */
 }
 
 .descricao-contato a {
     text-decoration: none;
     color: var(--color-black);
-    font-size: 1.8rem; /* Tamanho ajustado */
+    font-size: 1.8rem;
     letter-spacing: 1px;
     font-weight: bold;
     display: block;
@@ -1144,32 +1150,31 @@ a {
     overflow: hidden;
     text-overflow: ellipsis;
     max-width: 100%;
-    direction: rtl;
-    text-align: left;
+    text-align: right; /* Alinha os links à direita */
 }
 
 /* Ajustes para telas menores */
 @media screen and (max-width: 767px) {
     .descricao-contato {
         width: 100%;
-        text-align: left; /* Alinhamento corrigido */
+        text-align: left; /* Mantém alinhado à esquerda no telemóvel */
+        margin-top: 20px; /* Pequeno espaçamento */
+        margin-left: 0;
+        margin-right: 0;
     }
 
     .lista-contato {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-start; /* Mantém alinhado à esquerda no telemóvel */
     }
 
     .descricao-contato a {
         font-size: 0.9rem; /* Ajustado para melhor legibilidade */
         letter-spacing: 0;
-        white-space: nowrap; /* Evita quebras de linha desnecessárias */
+        white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 100%;
-        direction: rtl;
-        text-align: left;
+        text-align: left; /* Mantém à esquerda no telemóvel */
     }
 
     .descricao-contato i {
@@ -1186,6 +1191,8 @@ a {
 .gmail:hover {
     color: #D14836;
 }
+
+
 
 .conteudo-contato {
     width: 100%;
