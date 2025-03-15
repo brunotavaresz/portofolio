@@ -1123,62 +1123,69 @@ a {
   /* Base styles */
 .descricao-contato {
     width: 50%;
-    text-align: right;
-  }
-  
-  .lista-contato {
+    text-align: left;
+}
+
+.lista-contato {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .descricao-contato a {
+}
+
+.descricao-contato a {
     text-decoration: none;
     color: var(--color-black);
-    font-size: 2rem; /* Tamanho original para desktop */
-    letter-spacing: 1.5px;
+    font-size: 1.8rem; /* Tamanho ajustado */
+    letter-spacing: 1px;
     font-weight: bold;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
+    display: block;
     transition: color 0.3s ease;
-    white-space: nowrap; /* Impede quebra de linha */
-  }
-  
-  .descricao-contato i {
-    font-size: 2.2rem;
-    transition: color 0.3s ease;
-    margin-right: 10px;
-  }
-  
-  /* Mobile styles - apenas diminui o tamanho do texto */
-  @media screen and (max-width: 767px) {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+    direction: rtl;
+    text-align: left;
+}
+
+/* Ajustes para telas menores */
+@media screen and (max-width: 767px) {
+    .descricao-contato {
+        width: 100%;
+        text-align: left; /* Alinhamento corrigido */
+    }
+
+    .lista-contato {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
     .descricao-contato a {
-      font-size: 0.5rem; /* Muito menor para caber em uma linha */
-      letter-spacing: 0; /* Remove espaçamento entre letras */
+        font-size: 0.9rem; /* Ajustado para melhor legibilidade */
+        letter-spacing: 0;
+        white-space: nowrap; /* Evita quebras de linha desnecessárias */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 100%;
+        direction: rtl;
+        text-align: left;
     }
-    
+
     .descricao-contato i {
-      font-size: 0.9rem; /* Ícones menores para combinar */
-      margin-right: 5px; /* Espaço menor entre ícone e texto */
+        display: none; /* Remove os ícones do Gmail */
     }
-  }
-  
-  /* WhatsApp hover styles */
-  .whatsapp:hover {
+}
+
+/* WhatsApp hover styles */
+.whatsapp:hover {
     color: #25D366;
-  }
-  .whatsapp:hover i {
-    color: #25D366;
-  }
-  
-  /* Gmail hover styles */
-  .gmail:hover {
+}
+
+/* Gmail hover styles */
+.gmail:hover {
     color: #D14836;
-  }
-  .gmail:hover i {
-    color: #D14836;
-  }
+}
 
 .conteudo-contato {
     width: 100%;
