@@ -40,6 +40,8 @@
 
 html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
@@ -52,6 +54,8 @@ body {
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     transition: transform 0.3s ease-out;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 li {
@@ -1099,19 +1103,82 @@ a {
     font-family: var(--font-grande);
 }
 
+/* Base styles */
+.descricao-contato {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  
+  .lista-contato {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .lista-contato li {
+    margin-bottom: 8px;
+  }
+  
+  /* Base styles */
 .descricao-contato {
     width: 50%;
     text-align: right;
-}
-
-.descricao-contato a {
+  }
+  
+  .lista-contato {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .descricao-contato a {
     text-decoration: none;
     color: var(--color-black);
-    font-size: 2rem;
+    font-size: 2rem; /* Tamanho original para desktop */
     letter-spacing: 1.5px;
-    line-height: 1.4;
     font-weight: bold;
-}
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    transition: color 0.3s ease;
+    white-space: nowrap; /* Impede quebra de linha */
+  }
+  
+  .descricao-contato i {
+    font-size: 2.2rem;
+    transition: color 0.3s ease;
+    margin-right: 10px;
+  }
+  
+  /* Mobile styles - apenas diminui o tamanho do texto */
+  @media screen and (max-width: 767px) {
+    .descricao-contato a {
+      font-size: 0.5rem; /* Muito menor para caber em uma linha */
+      letter-spacing: 0; /* Remove espaçamento entre letras */
+    }
+    
+    .descricao-contato i {
+      font-size: 0.9rem; /* Ícones menores para combinar */
+      margin-right: 5px; /* Espaço menor entre ícone e texto */
+    }
+  }
+  
+  /* WhatsApp hover styles */
+  .whatsapp:hover {
+    color: #25D366;
+  }
+  .whatsapp:hover i {
+    color: #25D366;
+  }
+  
+  /* Gmail hover styles */
+  .gmail:hover {
+    color: #D14836;
+  }
+  .gmail:hover i {
+    color: #D14836;
+  }
 
 .conteudo-contato {
     width: 100%;
