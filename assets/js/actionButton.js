@@ -1,12 +1,15 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Ajusta para garantir que o site comece no topo ao recarregar
-    if (window.location.hash !== '#inicio') {
-        window.location.hash = '#inicio';
+    // Remove qualquer hash da URL para manter limpa
+    if (window.location.hash) {
+        window.history.replaceState({}, document.title, window.location.pathname);
     }
-
+    
+    // Garante que o site comece no topo ao recarregar
+    window.scrollTo(0, 0);
+    
     const backToTopButton = document.getElementById('backToTop');
     const whatsappButton = document.getElementById('whatsappButton');
-
+    
     // Função para exibir ou esconder os botões ao rolar a página
     function toggleButtons() {
         const scrollPosition = window.scrollY;
@@ -26,17 +29,19 @@ document.addEventListener('DOMContentLoaded', function () {
             }, 500);
         }
     }
-
+    
     // Adiciona o evento de scroll para exibir ou esconder os botões
     document.addEventListener('scroll', toggleButtons);
-
+    
     // Ação ao clicar no botão "Voltar ao Topo"
     backToTopButton.addEventListener('click', function () {
         window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Remove hash da URL
+        window.history.replaceState({}, document.title, window.location.pathname);
     });
-
+    
     // Ação ao clicar no botão do WhatsApp
     whatsappButton.addEventListener('click', function () {
-        window.location.href = 'https://wa.me/5599999999999';
+        window.location.href = 'https://wa.me/933380257'; // Atualizei com seu número correto
     });
 });

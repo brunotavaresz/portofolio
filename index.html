@@ -79,18 +79,18 @@
             </div>
             <div class="menu-aberto">
                 <nav class="nav-menu">
-                    <a href="#home">HOME</a>
+                    <a href="#" onclick="scrollToTop()">HOME</a>
                     <a href="#about">ABOUT</a>
                     <a href="#projects">PROJECTS</a>
                     <a href="#timeline">TIMELINE</a>
                     <a href="#contact">CONTACT</a>
-                </nav>                
+                </nav>             
             </div>
         </header>
         <!--Fim Header-->
 
         <!--Início-->
-        <main id="home" class="inicio">
+        <main id="" class="inicio">
             <div class="container-inicio">
                 <div class="conteudo-inicio" data-aos="fade-up" data-aos-duration="1000">
                     <div class="titulo-inicio">
@@ -931,10 +931,10 @@
                             </a>
                           </li>
                           <li>
-                            <a href="mailto:brunotavareslda@gmail.com" class="gmail">
-                              <i class="fa-solid fa-envelope"></i> brunotavareslda@gmail.com
-                            </a>
-                          </li>
+                                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=brunotavareslda@gmail.com" target="_blank" class="gmail">
+                                    <i class="fa-solid fa-envelope"></i> brunotavareslda@gmail.com
+                                </a>
+                            </li>
                         </ul>
                       </div>
                       
@@ -974,7 +974,7 @@
     <div class="container-footer">
         <div class="footer-content">
             <nav class="footer-nav">
-                <a href="#home">Home</a>
+                <a href="#" onclick="scrollToTop()">Home</a>
                 <a href="#about">About</a>
                 <a href="#projects">Projects</a>
                 <a href="#timeline">Timeline</a>
@@ -996,22 +996,20 @@
 </footer>
 
 <script>
-// Mostrar/esconder botão de scroll
-window.addEventListener('scroll', function() {
-    const scrollUpBtn = document.getElementById('scrollUpBtn');
-    if (window.pageYOffset > 300) {
-        scrollUpBtn.classList.add('show');
-    } else {
-        scrollUpBtn.classList.remove('show');
-    }
-});
-
-// Funcionalidade do botão de scroll
-document.getElementById('scrollUpBtn').addEventListener('click', function() {
+function scrollToTop() {
     window.scrollTo({
         top: 0,
         behavior: 'smooth'
     });
+    // Remove qualquer hash da URL
+    window.history.replaceState({}, document.title, window.location.pathname);
+}
+
+// Remove hash da URL quando a página carrega
+document.addEventListener('DOMContentLoaded', function() {
+    if (window.location.hash) {
+        window.history.replaceState({}, document.title, window.location.pathname);
+    }
 });
 </script>
 
