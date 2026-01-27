@@ -40,23 +40,18 @@
 
 html {
     scroll-behavior: smooth;
-    overflow-x: hidden; /* Keep horizontal overflow hidden on html */
-    width: 100%; /* Keep width 100% on html */
+    overflow-x: hidden;
+    width: 100%;
 }
 
 body {
     background-color: var(--color-black);
-    /* Remove all width and overflow properties from body */
-    /* width: 100%; */
     display: flex;
     align-items: center;
     justify-content: center;
     font-family: var(--font-pequena);
-    /* overflow-x: hidden; */
     -webkit-overflow-scrolling: touch;
     transition: transform 0.3s ease-out;
-    /* overflow-x: hidden; */
-    /* width: 100%; */
 }
 
 li {
@@ -451,32 +446,29 @@ a {
         }
 
         .headline-scroll {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             white-space: nowrap;
-            /* Otimizações para performance */
-            animation: scroll 30s linear infinite;
+            animation: scroll 40s linear infinite;
             will-change: transform;
-            transform: translateZ(0); /* Force GPU acceleration */
-            backface-visibility: hidden;
         }
 
         /* Animação otimizada para 60fps */
         @keyframes scroll {
             0% {
-                transform: translate3d(0, 0, 0);
+                transform: translateX(0);
             }
             100% {
-                transform: translate3d(-50%, 0, 0);
+                transform: translateX(-50%);
             }
         }
 
         .headline-scroll span {
             font-family: var(--font-grande);
             font-size: 5rem;
-            text-transform: uppercase;
-            display: flex;
-            align-items: center;
+            display: inline-block;
+            flex-shrink: 0;
+            padding: 0;
         }
 
         .headline-scroll .divisor {
@@ -485,6 +477,7 @@ a {
             background-color: var(--color-gray2);
             border-radius: 50%;
             margin: 0 20px;
+            flex-shrink: 0;
         }
 
         .headline-scroll .bold {
@@ -498,15 +491,39 @@ a {
         }
 
         /* Responsive */
+        @media (max-width: 1200px) {
+            .headline-scroll span {
+                font-size: 4rem;
+            }
+            
+            .headline-scroll .divisor {
+                width: 16px;
+                height: 16px;
+                margin: 0 16px;
+            }
+        }
+
         @media (max-width: 768px) {
             .headline-scroll span {
                 font-size: 3rem;
             }
             
             .headline-scroll .divisor {
-                width: 15px;
-                height: 15px;
-                margin: 0 15px;
+                width: 14px;
+                height: 14px;
+                margin: 0 14px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .headline-scroll span {
+                font-size: 2.2rem;
+            }
+            
+            .headline-scroll .divisor {
+                width: 12px;
+                height: 12px;
+                margin: 0 12px;
             }
         }
 
@@ -579,25 +596,61 @@ a {
 
 .imagem-sobre {
     display: flex;
-    justify-content: right;
+    justify-content: center;
     align-items: center;
     position: absolute;
-    border-radius: 50rem;
+    border-radius: 20px;
     overflow: hidden;
-    width: 80%;
-    max-width: 600px;
-    margin-top: 40px;
+    width: 550px;
+    height: 650px;
+    margin-top: 20px;
 }
 
 .imagem-sobre img {
     width: 100%;
-    height: auto;
-    border-radius: 50rem;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 40%;
+}
+
+@media (max-width: 1400px) {
+    .imagem-sobre {
+        width: 480px;
+        height: 580px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .imagem-sobre {
+        width: 420px;
+        height: 520px;
+    }
+}
+
+@media (max-width: 992px) {
+    .imagem-sobre {
+        width: 360px;
+        height: 460px;
+    }
 }
 
 @media (max-width: 768px) {
     .imagem-sobre {
-        display: none;
+        position: relative;
+        width: 90%;
+        max-width: 320px;
+        height: 400px;
+        margin: 30px auto;
+        display: flex;
+    }
+}
+
+@media (max-width: 480px) {
+    .imagem-sobre {
+        width: 95%;
+        max-width: 280px;
+        height: 350px;
+        margin: 20px auto;
     }
 }
 
