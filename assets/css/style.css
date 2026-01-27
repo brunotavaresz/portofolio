@@ -830,7 +830,7 @@ a {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    margin: 1rem 0;
+    margin: 2.5rem 0 1rem 0;
     flex-wrap: wrap;
 }
 
@@ -967,6 +967,12 @@ a {
 
 .card-icon:hover i {
     color: var(--color-white);
+}
+
+/* Full-Stack section - cards em largura completa */
+#fullstack .card-projects {
+    width: 100% !important;
+    max-width: 100%;
 }
 
 /* Responsive Design */
