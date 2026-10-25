@@ -1831,3 +1831,49 @@ a {
         padding: 1.75rem;
     }
 }
+
+/* Desktop: let the About section grow with its text so nothing is cut off */
+@media (min-width: 1025px) {
+    .sobre {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .container-sobre {
+        height: auto;
+    }
+
+    .conteudo-sobre {
+        top: auto;
+        height: auto;
+        padding-top: 30vh;
+        padding-bottom: 3rem;
+    }
+
+    .right-sobre {
+        height: auto;
+        align-items: center;
+    }
+
+    .imagem-sobre {
+        position: relative;
+        margin-top: 0;
+    }
+}
+
+/* Skills: align icons, titles and text across all boxes */
+.box-skills {
+    justify-content: flex-start;
+}
+
+@media (min-width: 900px) {
+    .box-skills {
+        padding-top: 3rem;
+    }
+
+    .box-skills h3 {
+        min-height: 2.4em;
+        display: flex;
+        align-items: flex-end;
+    }
+}
