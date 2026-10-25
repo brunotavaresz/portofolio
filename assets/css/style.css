@@ -1877,3 +1877,124 @@ a {
         align-items: flex-end;
     }
 }
+
+/* Anchor targets are not hidden under the fixed header */
+section[id] {
+    scroll-margin-top: 90px;
+}
+
+/* Desktop navigation always visible */
+.nav-desktop {
+    display: none;
+}
+
+@media (min-width: 1025px) {
+    .nav-desktop {
+        display: flex;
+        align-items: center;
+        gap: 2.5rem;
+        margin-left: auto;
+    }
+
+    .nav-desktop a {
+        color: var(--color-white);
+        text-decoration: none;
+        font-family: var(--font-pequena);
+        font-size: 1rem;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        opacity: 0.85;
+        transition: color 0.3s ease, opacity 0.3s ease;
+    }
+
+    .nav-desktop a:hover {
+        color: #00bfff;
+        opacity: 1;
+    }
+
+    .nav-cv {
+        font-family: var(--font-pequena);
+        font-size: 0.95rem;
+        letter-spacing: 1px;
+        padding: 0.55rem 1.4rem;
+        border: 1px solid var(--color-white);
+        border-radius: 50px;
+        background: transparent;
+        color: var(--color-white);
+        cursor: pointer;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .nav-cv:hover {
+        background-color: var(--color-white);
+        color: var(--color-black);
+    }
+
+    .header .menu,
+    .menu-aberto {
+        display: none;
+    }
+}
+
+/* Whole project card is clickable */
+.card-clickable {
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card-clickable:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+}
+
+/* Mobile: project tabs in one horizontally scrollable row */
+@media screen and (max-width: 767px) {
+    .tabs-navigation {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        gap: 0.6rem;
+        padding: 0 0 0.6rem;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tabs-navigation::-webkit-scrollbar {
+        display: none;
+    }
+
+    .tab-btn {
+        flex: 0 0 auto;
+        padding: 0.7rem 1.2rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* One-line project descriptions */
+.card-desc {
+    font-family: var(--font-pequena);
+    font-size: 1.05rem;
+    line-height: 1.45;
+    color: var(--color-gray1);
+    margin: 0.75rem 0 1.1rem;
+    max-width: 95%;
+}
+
+/* Mobile: card text uses the full width, icon goes under it */
+@media screen and (max-width: 767px) {
+    .card-projects {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .card-titulo {
+        width: 100%;
+    }
+
+    .card-icon {
+        width: 64px;
+        height: 48px;
+        align-self: flex-end;
+    }
+}
