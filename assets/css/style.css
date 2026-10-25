@@ -1787,3 +1787,47 @@ a {
         font-size: 1.3rem;
     }
 }
+/* Contact links fit narrow screens (long email address) */
+@media screen and (max-width: 767px) {
+    .lista-contato li {
+        max-width: 100%;
+    }
+
+    .descricao-contato a {
+        white-space: normal;
+        overflow-wrap: anywhere;
+        font-size: 0.95rem;
+    }
+}
+
+/* Mobile: stack the Projects header and let skill boxes fit their content */
+@media screen and (max-width: 767px) {
+    .headline-projects {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        gap: 1rem;
+        padding: 2rem 0 1rem;
+    }
+
+    .titulo-projects,
+    .descricao-projects {
+        width: 100%;
+    }
+
+    .titulo-projects h1 {
+        width: auto;
+        font-size: 3.5rem;
+    }
+
+    .descricao-projects {
+        font-size: 1.1rem;
+        text-align: left;
+        letter-spacing: 0.5px;
+    }
+
+    .box-skills {
+        height: auto;
+        padding: 1.75rem;
+    }
+}
